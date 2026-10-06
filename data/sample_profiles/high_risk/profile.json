@@ -1,0 +1,19 @@
+{
+  "platform": "instagram",
+  "username": "alex.rivers.tech",
+  "display_name": "Alex Rivers",
+  "bio": "Senior DevOps @ CloudMatrix • Marathon Runner • Contact: alex.rivers@workmail.io or +1 (415) 555-0199",
+  "website": "https://alexrivers.portfolio.dev",
+  "email": "alex.rivers@workmail.io",
+  "phone": "+1 415 555 0199",
+  "location": "Downtown San Francisco, CA",
+  "privacy": {
+    "account_private": false,
+    "show_activity": true,
+    "allow_message_requests": true
+  },
+  "links": [
+    "https://linktr.ee/alexrivers",
+    "https://github.com/alexrivers"
+  ]
+}

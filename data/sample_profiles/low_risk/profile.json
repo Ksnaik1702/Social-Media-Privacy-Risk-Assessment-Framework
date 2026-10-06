@@ -1,0 +1,16 @@
+{
+  "platform": "generic",
+  "username": "privacy_first_user",
+  "display_name": "P. F.",
+  "bio": "Open-source contributor & tech enthusiast.",
+  "website": "",
+  "email": null,
+  "phone": null,
+  "location": null,
+  "privacy": {
+    "account_private": true,
+    "show_activity": false,
+    "allow_message_requests": false
+  },
+  "links": []
+}

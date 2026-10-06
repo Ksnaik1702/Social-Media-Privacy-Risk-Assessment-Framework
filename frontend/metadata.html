@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe Photo EXIF Metadata Inspector & Scrubber | PrivacyGuard</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <i class="fa-solid fa-shield-halved" style="color: var(--accent-cyan); font-size: 1.4rem;"></i>
+      <span>PrivacyGuard <span class="brand-badge">CYBER DEFENSE</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/assessment" class="nav-link">Privacy Assessment</a>
+      <a href="/dashboard" class="nav-link">Risk Dashboard</a>
+      <a href="/metadata" class="nav-link active">EXIF Inspector</a>
+      <a href="/docs" target="_blank" class="nav-link">API Docs</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div style="margin-bottom: 2rem;">
+      <h1 style="font-size: 2.2rem; font-weight: 800;"><i class="fa-solid fa-camera-rotate" style="color: var(--accent-cyan); margin-right: 8px;"></i> Safe Photo EXIF Metadata Inspector</h1>
+      <p style="color: var(--text-muted);">
+        Inspect what hidden data your photos leak (exact GPS coordinates, camera serial, capture timestamp) and safely strip it before posting.
+      </p>
+    </div>
+
+    <!-- Privacy by Design In-Memory Guarantee -->
+    <div class="alert alert-info">
+      <i class="fa-solid fa-shield-halved" style="font-size: 1.4rem;"></i>
+      <div>
+        <strong>Local & In-Memory Guarantee:</strong> Uploaded images are analyzed in volatile memory and are NEVER permanently saved to disk or transmitted to third parties.
+      </div>
+    </div>
+
+    <!-- Drag & Drop Upload Card -->
+    <div class="card" style="margin-bottom: 2rem;">
+      <div id="drop-area" class="dropzone">
+        <i class="fa-solid fa-cloud-arrow-up" style="font-size: 3rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Drag & Drop an Image to Inspect EXIF Metadata</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Supports JPG, JPEG, PNG, WEBP (Smartphone photos usually contain EXIF GPS)</p>
+        <input type="file" id="file-input" accept="image/*" style="display: none;">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('file-input').click()">
+          <i class="fa-solid fa-folder-open"></i> Select Image from Computer
+        </button>
+      </div>
+    </div>
+
+    <!-- Results Panel (Hidden until upload) -->
+    <div id="metadata-results-panel" style="display: none;">
+      <!-- Risk Findings Summary -->
+      <div class="grid-2" style="margin-bottom: 2rem;">
+        <div class="card" style="border-left: 4px solid var(--risk-crit);">
+          <div class="card-header">
+            <div class="card-title"><i class="fa-solid fa-triangle-exclamation" style="color: var(--risk-crit); margin-right: 8px;"></i> Detected Privacy Leaks</div>
+            <span id="meta-finding-badge" class="badge badge-crit">LEAKS DETECTED</span>
+          </div>
+          <div id="meta-findings-list">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+        <!-- Action Card to Strip EXIF -->
+        <div class="card" style="border-left: 4px solid var(--risk-low); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="card-header">
+              <div class="card-title"><i class="fa-solid fa-broom" style="color: var(--risk-low); margin-right: 8px;"></i> Privacy Remediation</div>
+              <span class="badge badge-low">Sanitize</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              Remove all EXIF tags, GPS locations, and camera identifiers while preserving image visual quality.
+            </p>
+          </div>
+          <div style="margin-top: 1.5rem;">
+            <button id="btn-strip-download" class="btn btn-success" style="width: 100%; padding: 0.8rem;">
+              <i class="fa-solid fa-download"></i> Strip Metadata & Download Clean Image
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Raw Metadata Table -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa-solid fa-table-list" style="color: var(--accent-cyan); margin-right: 8px;"></i> Raw EXIF Metadata Dictionary</div>
+          <span id="meta-field-count" class="badge badge-mod">0 Fields</span>
+        </div>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color); color: var(--text-muted);">
+                <th style="padding: 0.75rem 1rem;">Tag Name</th>
+                <th style="padding: 0.75rem 1rem;">Extracted Value</th>
+              </tr>
+            </thead>
+            <tbody id="raw-meta-tbody">
+              <!-- Injected via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>Social Media Privacy Risk Assessment Framework &bull; Privacy by Design &bull; Educational Cybersecurity Tool</p>
+  </footer>
+
+  <script type="module" src="/static/js/metadata.js"></script>
+</body>
+</html>

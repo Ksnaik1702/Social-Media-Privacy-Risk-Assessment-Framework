@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Privacy Risk Assessment Framework</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <i class="fa-solid fa-shield-halved" style="color: var(--accent-cyan); font-size: 1.4rem;"></i>
+      <span>PrivacyGuard <span class="brand-badge">CYBER DEFENSE</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link active">Home</a>
+      <a href="/assessment" class="nav-link">Privacy Assessment</a>
+      <a href="/dashboard" class="nav-link">Risk Dashboard</a>
+      <a href="/metadata" class="nav-link">EXIF Inspector</a>
+      <a href="/docs" target="_blank" class="nav-link">API Docs</a>
+      <a href="/assessment" class="btn btn-primary"><i class="fa-solid fa-play"></i> Start Scan</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Hero Header -->
+    <section class="hero">
+      <span class="badge badge-low" style="margin-bottom: 1rem;"><i class="fa-solid fa-lock"></i> DEFENSIVE PRIVACY ENGINEERING</span>
+      <h1>Social Media Privacy Risk Assessment Framework</h1>
+      <p>
+        An industry-aligned cybersecurity platform that evaluates online exposure, account security,
+        geotag trails, and social-engineering vulnerability using Privacy by Design and data minimization.
+      </p>
+      <div class="hero-actions">
+        <a href="/assessment" class="btn btn-primary" style="padding: 0.8rem 1.8rem; font-size: 1.05rem;">
+          <i class="fa-solid fa-clipboard-check"></i> Launch Privacy Questionnaire
+        </a>
+        <a href="/dashboard" class="btn btn-outline" style="padding: 0.8rem 1.8rem; font-size: 1.05rem;">
+          <i class="fa-solid fa-chart-pie"></i> View Telemetry Dashboard
+        </a>
+        <a href="/metadata" class="btn btn-outline" style="padding: 0.8rem 1.8rem; font-size: 1.05rem;">
+          <i class="fa-solid fa-image"></i> Inspect Photo EXIF
+        </a>
+      </div>
+    </section>
+
+    <!-- Privacy by Design Guarantee Alert -->
+    <div class="alert alert-info">
+      <i class="fa-solid fa-shield-check" style="font-size: 1.4rem;"></i>
+      <div>
+        <strong>Privacy by Design Guarantee:</strong> This application never asks for or stores actual phone numbers,
+        passwords, exact addresses, or private messages. We never scrape real profiles. Only self-reported configurations
+        and derived scores are processed.
+      </div>
+    </div>
+
+    <!-- Privacy vs Security Architectural Pillar -->
+    <section class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa-solid fa-user-shield" style="color: var(--accent-cyan); margin-right: 8px;"></i> Privacy</div>
+          <span class="badge badge-mod">Data Control</span>
+        </div>
+        <p class="card-desc">
+          Controls how personal information is collected, exposed, shared, and used.
+          Focuses on data minimization, audience boundaries, and restricting public accessibility of biographical details.
+        </p>
+        <div style="margin-top: 1rem; padding: 0.8rem; background: var(--bg-secondary); border-radius: 6px; font-size: 0.88rem;">
+          <strong>Example:</strong> Hiding phone number, birth year, and residential neighborhood from public view.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa-solid fa-key" style="color: var(--accent-blue); margin-right: 8px;"></i> Security</div>
+          <span class="badge badge-low">Access Protection</span>
+        </div>
+        <p class="card-desc">
+          Protects systems, accounts, and information from unauthorized access or compromise.
+          Focuses on multi-factor authentication, strong unique passwords, and active session management.
+        </p>
+        <div style="margin-top: 1rem; padding: 0.8rem; background: var(--bg-secondary); border-radius: 6px; font-size: 0.88rem;">
+          <strong>Core Principle:</strong> <em>Strong Account Security &ne; Strong Privacy.</em> An account can have a 25-character password and MFA, yet still publicly leak home location and phone numbers!
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Categories Grid -->
+    <section style="margin-top: 3rem;">
+      <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-layer-group" style="color: var(--accent-cyan); margin-right: 8px;"></i> 10 Comprehensive Risk Categories Evaluated</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Our 45-question diagnostic evaluates exposure across the entire social footprint:</p>
+      
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-eye" style="color: var(--accent-cyan);"></i> Profile Visibility</h3>
+          <p class="card-desc">Search engine indexation, public discoverability via phone/email, and connection list visibility.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-id-card" style="color: var(--risk-crit);"></i> Personal Information</h3>
+          <p class="card-desc">Public exposure of phone numbers, emails, full birth dates, and family relationships.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-location-dot" style="color: var(--risk-high);"></i> Location Privacy</h3>
+          <p class="card-desc">Real-time check-ins, travel itinerary broadcasting, routine route disclosures, and EXIF leaks.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-camera" style="color: var(--risk-mod);"></i> Posts & Content</h3>
+          <p class="card-desc">Workplace ID badges, corporate desk screens, minor identification, and boarding pass barcodes.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-user-group" style="color: var(--accent-blue);"></i> Friends & Followers</h3>
+          <p class="card-desc">Acceptance of unknown connection requests, lack of connection pruning, and follower engagement pods.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-tags" style="color: var(--risk-mod);"></i> Tagging & Mentions</h3>
+          <p class="card-desc">Timeline review queues, third-party photo tagging permissions, and unsolicited public handle mentions.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-lock" style="color: var(--risk-crit);"></i> Authentication & Security</h3>
+          <p class="card-desc">Multi-Factor Authentication (MFA), password reuse across services, and unrecognized login alerts.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-cubes" style="color: var(--accent-cyan);"></i> Third-Party Apps</h3>
+          <p class="card-desc">Stale OAuth authorizations, viral quiz scopes, direct message access, and least-privilege review.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-user-secret" style="color: var(--risk-high);"></i> Social Engineering</h3>
+          <p class="card-desc">OTP sharing awareness, DM phishing links, viral security-question quizzes, and urgent wire requests.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="card" style="margin-top: 3rem; background: var(--bg-secondary);">
+      <h2 style="font-size: 1.4rem; margin-bottom: 1rem;"><i class="fa-solid fa-diagram-project" style="color: var(--accent-cyan); margin-right: 8px;"></i> Framework Evaluation Pipeline</h2>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-around; gap: 1rem; text-align: center; padding: 1rem 0;">
+        <div style="flex: 1; min-width: 140px;">
+          <div style="font-size: 2rem; color: var(--accent-cyan);"><i class="fa-solid fa-user-check"></i></div>
+          <div style="font-weight: 700; margin-top: 0.5rem;">1. User Input</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">45-Q Diagnostic or JSON Feed</div>
+        </div>
+        <div style="color: var(--border-color); font-size: 1.5rem;"><i class="fa-solid fa-arrow-right"></i></div>
+        <div style="flex: 1; min-width: 140px;">
+          <div style="font-size: 2rem; color: var(--accent-blue);"><i class="fa-solid fa-gears"></i></div>
+          <div style="font-weight: 700; margin-top: 0.5rem;">2. Feature Extract</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">Numerical Risk Mapping</div>
+        </div>
+        <div style="color: var(--border-color); font-size: 1.5rem;"><i class="fa-solid fa-arrow-right"></i></div>
+        <div style="flex: 1; min-width: 140px;">
+          <div style="font-size: 2rem; color: var(--risk-mod);"><i class="fa-solid fa-calculator"></i></div>
+          <div style="font-weight: 700; margin-top: 0.5rem;">3. Risk Scoring</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">0-100 Weighted Model</div>
+        </div>
+        <div style="color: var(--border-color); font-size: 1.5rem;"><i class="fa-solid fa-arrow-right"></i></div>
+        <div style="flex: 1; min-width: 140px;">
+          <div style="font-size: 2rem; color: var(--risk-crit);"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div style="font-weight: 700; margin-top: 0.5rem;">4. Findings Engine</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">Severity & Attack Vectors</div>
+        </div>
+        <div style="color: var(--border-color); font-size: 1.5rem;"><i class="fa-solid fa-arrow-right"></i></div>
+        <div style="flex: 1; min-width: 140px;">
+          <div style="font-size: 2rem; color: var(--risk-low);"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div style="font-weight: 700; margin-top: 0.5rem;">5. Simulation</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">What-If Risk Reduction</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Launch Bar -->
+    <section style="margin-top: 3rem; text-align: center;">
+      <a href="/assessment" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.15rem;">
+        <i class="fa-solid fa-rocket"></i> Begin Your Privacy Risk Assessment
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div style="margin-bottom: 0.5rem;">
+      <strong>Social Media Privacy Risk Assessment Framework</strong> &bull; Defensive Cybersecurity Course Project
+    </div>
+    <p>Adheres to Privacy by Design &bull; Educational Risk Assessment Only &bull; Built with FastAPI, SQLite & Chart.js</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "post_101",
+    "text": "Daily 7am run along the Embarcadero before clocking in at CloudMatrix 5th floor!",
+    "created_at": "2026-05-10T14:30:00Z",
+    "hashtags": ["#run", "#commute"],
+    "mentions": [],
+    "geo": { "lat": 37.7937, "lon": -122.3965 },
+    "media": {
+      "type": "image",
+      "has_faces": true,
+      "is_child_present": false,
+      "exif": {
+        "make": "Apple",
+        "model": "iPhone 15 Pro",
+        "created_local": "2026-05-10 07:05:12"
+      }
+    }
+  },
+  {
+    "id": "post_102",
+    "text": "First day of school for my daughter Emily! So proud of her starting at Lincoln Elementary! #kids #school",
+    "created_at": "2026-08-20T16:00:00Z",
+    "hashtags": ["#kids", "#school"],
+    "mentions": [],
+    "geo": null,
+    "media": {
+      "type": "image",
+      "has_faces": true,
+      "is_child_present": true,
+      "exif": {
+        "make": "Apple",
+        "model": "iPhone 15 Pro",
+        "created_local": "2026-08-20 08:15:00"
+      }
+    }
+  },
+  {
+    "id": "post_103",
+    "text": "Picked up my new all-access security badge and ID card for the CloudMatrix Datacenter HQ, building 4!",
+    "created_at": "2026-09-02T18:45:00Z",
+    "hashtags": ["#newjob", "#cloud"],
+    "mentions": ["@cloudmatrix"],
+    "geo": null,
+    "media": {
+      "type": "image",
+      "has_faces": true,
+      "is_child_present": false,
+      "exif": { "created_local": "2026-09-02 11:30:00" }
+    }
+  }
+]

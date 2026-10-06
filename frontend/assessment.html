@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Assessment Questionnaire | PrivacyGuard</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <i class="fa-solid fa-shield-halved" style="color: var(--accent-cyan); font-size: 1.4rem;"></i>
+      <span>PrivacyGuard <span class="brand-badge">CYBER DEFENSE</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/assessment" class="nav-link active">Privacy Assessment</a>
+      <a href="/dashboard" class="nav-link">Risk Dashboard</a>
+      <a href="/metadata" class="nav-link">EXIF Inspector</a>
+      <a href="/docs" target="_blank" class="nav-link">API Docs</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Header with Quick Demo Fill Controls -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+      <div>
+        <h1 style="font-size: 2.2rem; font-weight: 800;"><i class="fa-solid fa-clipboard-check" style="color: var(--accent-cyan); margin-right: 8px;"></i> Privacy Risk Assessment</h1>
+        <p style="color: var(--text-muted);">Answer questions regarding your social media configuration and sharing habits. No real PII is collected.</p>
+      </div>
+
+      <!-- Quick Demo Presets -->
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <button id="btn-fill-high-risk" class="btn btn-outline" style="border-color: var(--risk-crit); color: var(--risk-crit);">
+          <i class="fa-solid fa-triangle-exclamation"></i> Load High-Risk Preset
+        </button>
+        <button id="btn-fill-low-risk" class="btn btn-outline" style="border-color: var(--risk-low); color: var(--risk-low);">
+          <i class="fa-solid fa-shield-check"></i> Load Low-Risk Preset
+        </button>
+        <button id="btn-toggle-json" class="btn btn-outline">
+          <i class="fa-solid fa-file-code"></i> JSON Feed Mode
+        </button>
+      </div>
+    </div>
+
+    <!-- JSON Ingestion Modal/Drawer (Hidden by default) -->
+    <div id="json-mode-box" class="card" style="display: none; margin-bottom: 2rem; border-color: var(--accent-blue);">
+      <div class="card-header">
+        <div class="card-title"><i class="fa-solid fa-file-code" style="color: var(--accent-blue); margin-right: 8px;"></i> Ingest Exported Profile & Posts JSON</div>
+        <button id="btn-close-json" class="btn btn-outline" style="padding: 0.3rem 0.6rem; font-size: 0.8rem;">Close</button>
+      </div>
+      <p class="card-desc" style="margin-bottom: 1rem;">
+        Paste synthetic or exported JSON for profile metadata and post history to run automated regex & keyword pattern checks without live scraping.
+      </p>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div>
+          <label style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3rem; display: block;">profile.json</label>
+          <textarea id="json-profile-input" rows="8" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-color); color: #fff; padding: 0.75rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem;" placeholder='{"platform":"instagram","username":"alex.tech","bio":"..."}'></textarea>
+        </div>
+        <div>
+          <label style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3rem; display: block;">posts.json</label>
+          <textarea id="json-posts-input" rows="8" style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-color); color: #fff; padding: 0.75rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem;" placeholder='[{"id":"p1","text":"Morning 7am run...","geo":{"lat":37.7}}]'></textarea>
+        </div>
+      </div>
+      <div style="margin-top: 1rem; display: flex; gap: 0.75rem;">
+        <button id="btn-load-sample-json" class="btn btn-outline"><i class="fa-solid fa-download"></i> Load High-Risk Sample Data</button>
+        <button id="btn-submit-json" class="btn btn-primary"><i class="fa-solid fa-play"></i> Analyze JSON Feed</button>
+      </div>
+    </div>
+
+    <!-- Progress & Category Navigation Bar -->
+    <div class="card" style="margin-bottom: 2rem; padding: 1.25rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span style="font-weight: 700; font-size: 0.95rem;">Assessment Completion</span>
+        <span id="progress-text" style="color: var(--accent-cyan); font-weight: 800;">0 / 45 Answered (0%)</span>
+      </div>
+      <div class="progress-container">
+        <div id="progress-bar-fill" class="progress-bar" style="width: 0%; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));"></div>
+      </div>
+
+      <!-- Quick category jumper pills -->
+      <div id="category-pills" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+
+    <!-- Questionnaire Container -->
+    <form id="assessment-form">
+      <div id="questions-render-area">
+        <div style="text-align: center; padding: 3rem;">
+          <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 2rem; color: var(--accent-cyan);"></i>
+          <p style="margin-top: 1rem; color: var(--text-muted);">Loading comprehensive privacy diagnostic questions...</p>
+        </div>
+      </div>
+
+      <!-- Fixed Bottom Action Bar -->
+      <div class="card" style="margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; background: var(--bg-secondary); position: sticky; bottom: 1rem; z-index: 50; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+        <div>
+          <span style="font-weight: 700;" id="bottom-status-count">0 of 45 completed</span>
+          <span style="color: var(--text-dim); font-size: 0.85rem; margin-left: 8px;">(Unanswered questions will evaluate as 'Not Sure / Moderate')</span>
+        </div>
+        <button type="submit" id="btn-submit-assessment" class="btn btn-primary" style="padding: 0.8rem 2.2rem; font-size: 1.05rem;">
+          <i class="fa-solid fa-calculator"></i> Calculate Privacy Risk Score
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <p>Social Media Privacy Risk Assessment Framework &bull; Privacy by Design &bull; Educational Cybersecurity Tool</p>
+  </footer>
+
+  <script type="module" src="/static/js/questionnaire.js"></script>
+</body>
+</html>
